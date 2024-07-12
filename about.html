@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: 'Arial', Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            font-family: 'Arial', Courier, monospace;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #065888;
+        }
+        h3{
+            font-style:italic
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #00649e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #61aef7;
+        }
+
+        #komentarContainer {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .comment strong {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABOUT ME</h1>
+
+        <h4>Indonesia</h2>
+            <style>
+                h4{
+                    font-style:italic;
+                    color:grey
+                }
+            </style>
+        <p>
+            Hallo, saya Jadihot Silalahi, Lulusan Sekolah Menengah Kejuruan/SMK dengan jurusan Teknik Komputer dan Jaringan. Saya memiliki minat dan hobi di bidang IT, seperti CODING, keamanan jaringan, dan sedang mempelajari Cyber Security. Lewat website ini, saya berdedikasi untuk mengembangkan kemampuan saya dan memberikan edukasi kepada banyak orang. Maaf jika Website ini masih kurang sempurna, saya masih pemula.
+        </p>
+        <h4>English</h4>
+        <p>
+
+            "Hello, I'm Jadihot Silalahi, a graduate of Vocational High School with a major in Computer and Network Engineering. I have interests and hobbies in IT, such as CODING, network security, and I am currently studying Cyber Security. Through this website, I am dedicated to developing my skills and providing education to many people. I apologize if this website is still imperfect; I am still a beginner."</p>
+    </div>
+    <div class="container">
+        <h2>SARAN</h2>
+        <p>Kirimkan saya sebuah saran atau masukan untuk mengembangkan website ini.</p>
+
+        <h3>Kolom Komentar</h3>
+        <input type="text" id="nama" placeholder="Nama Anda"><br><br>
+        <textarea id="komentar" rows="4" cols="50" placeholder="Beri Saya Saran..."></textarea><br><br>
+        <button onclick="kirimKomentar()">KIRIM</button>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init('YOUR_USER_ID'); // Ganti dengan User ID EmailJS Anda
+
+        function kirimKomentar() {
+            var nama = document.getElementById("nama").value;
+            var komentar = document.getElementById("komentar").value;
+
+            // Kirim email menggunakan EmailJS
+            var templateParams = {
+                from_name: nama,
+                to_name: 'Your Name', // Ganti dengan nama Anda
+                message_html: komentar
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('Email terkirim!', response.status, response.text);
+                    alert('Komentar Anda telah terkirim. Terima kasih atas masukannya!');
+                    // Clear form fields jika diperlukan
+                    document.getElementById("nama").value = "";
+                    document.getElementById("komentar").value = "";
+                }, function(error) {
+                    console.log('Gagal mengirim email:', error);
+                    alert('Berhasil Mengirim Pesan. Terimakasih 🙏');
+                });
+        }
+    </script>
+</body>
+</html>
+    

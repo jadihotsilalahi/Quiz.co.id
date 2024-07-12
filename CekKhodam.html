@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam By Jadihot</title>
+    <link rel="stylesheet" href="style.css"> <!-- Pastikan path ke file CSS Anda -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+        h1, h2 {
+            color: #065888;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #23c1cc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #1431d4;
+            transform: scale(1.05);
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 18px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        footer {
+            color: #f5f1f1;
+            font-size: 20px;
+            text-align: center;
+            font-style: italic;
+            background-color: #065888;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="cek-khodam" class="container">
+        <h1>SELAMAT DATANG</h1>
+        <h2>MARI CARI TAU SOSOK DI BALIK DIRI ANDA!</h2>
+        <hr>
+        <p>Website ini dibuat untuk mencari tahu sosok apa yang berada di balik diri Anda 👻😱</p>
+        <p>Motivasi saya membuat website ini adalah karena banyaknya orang yang tidak mengetahui sosok apa saja yang berada di balik diri mereka. Saya akan membantu Anda untuk mencari tahu sosok apa yang berada di dalam diri Anda!</p>
+        <hr>
+        <h2>Silakan Cek Khodam Anda!</h2><br>
+        <input type="text" id="nameInput" placeholder="Masukkan nama Anda">
+        <center>
+            <button class="btn" onclick="checkKhodam()">Cek Sekarang</button>
+        </center>
+        <div id="result"></div>
+    </div>
+    <script>
+        function checkKhodam() {
+            const khodams = [
+                "Kolor Merah",
+                "Naga Bonar",
+                "Mie Ayam",
+                "Tuyul Mulet",
+                "Gundoruwo Joget",
+                "Kumis Lele",
+                "Goyang Dumang",
+                "Kuda Nil Jawa",
+                "Pocong Joget", 
+                "Tuyul Fashion",
+                "Goyang Dumang"
+            ];
+            
+            const descriptions = [
+                "Kolor Merah adalah sosok yang legendaris dengan warna celana dalam merah yang membawa kekuatan mistis.",
+                "Naga Bonar adalah sosok kuat dan gagah berani, sering dianggap sebagai pelindung.",
+                "Mie Ayam adalah sosok yang menyukai makanan dan sering membawa keberuntungan.",
+                "Tuyul Mulet adalah tuyul yang memiliki rambut panjang dan bergaya.",
+                "Gundoruwo Joget adalah sosok menyeramkan yang suka menari dengan gembira.",
+                "Kumis Lele adalah sosok yang memiliki kumis seperti ikan lele, dikenal dengan kebijaksanaannya.",
+                "Goyang Dumang adalah sosok yang penuh semangat dan suka bergoyang dengan irama.",
+                "Kuda Nil Jawa adalah sosok besar dan kuat dari Jawa yang memiliki keberanian besar.",
+                "Pocong Joget adalah pocong yang suka menari dan menghibur orang.",
+                "Tuyul Fashion adalah tuyul yang selalu tampil dengan pakaian yang stylish.",
+                "Goyang Dumang adalah sosok yang penuh semangat dan suka bergoyang dengan irama."
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * khodams.length);
+            const selectedKhodam = khodams[randomIndex];
+            const selectedDescription = descriptions[randomIndex];
+            const userName = document.getElementById("nameInput").value;
+            
+            if (userName) {
+                document.getElementById("result").innerHTML = `<p>${userName}, Khodam Anda adalah: <strong>${selectedKhodam}</strong></p><p>${selectedDescription}</p>`;
+            } else {
+                document.getElementById("result").innerText = "Silakan masukkan nama Anda terlebih dahulu.";
+            }
+        }
+    </script>
+    <footer>By &copy; Jadihot Silalahi</footer>
+
+
+</body>
+</html>
